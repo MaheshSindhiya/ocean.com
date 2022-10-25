@@ -5,8 +5,8 @@
 
 <?php
 include 'session-file.php';
-include 'database/handlers/register_handler.php';
-include 'database/handlers/login_handler.php';
+include 'handlers/register_handler.php';
+include 'handlers/login_handler.php';
 ?>
 
 
@@ -20,6 +20,13 @@ include 'database/handlers/login_handler.php';
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/register.css">
+    <style>
+        .alert{
+            color: red;
+            margin: auto;
+        }
+    </style>
+
 
     <!-- favigon -->
     <link rel="shortcut icon" href="images/favigon.jpg" type="image/x-icon">
@@ -57,7 +64,7 @@ include 'database/handlers/login_handler.php';
                     <!-- remember me -->
                     
 
-                    <?php if(in_array("Email or Password was incorrect", $error_array)) echo "Email or Password was incorrect"; ?>
+                    <?php if(in_array("Email or Password was incorrect", $error_array_login)) echo "<p class='alert'>Email or Password was incorrect</p>"; ?>
                     <button type="submit" style="margin-bottom:20px" name="login_button">Sign in!</button>
                 </form>     
             </div>
@@ -78,7 +85,10 @@ include 'database/handlers/login_handler.php';
                     <input type="text" name="reg_fname" placeholder="First Name" value="<?php if (isset($_SESSION['reg_fname'])) {
                         echo $_SESSION['reg_fname'];
                     } ?>" required>
-                    <?php if (in_array("Your first name must be between 2 and 25 characters" , $error_array)) echo "Your first name must be between 2 and 25 characters";           
+                    <?php if (in_array("Your first name must be between 2 and 25 characters" , $error_array)) 
+                          {
+                              echo "<p class='alert'>Your first name must be between 2 and 25 characters</p>";
+                          }           
                     ?>
 
                     <!-- Last Name -->
@@ -86,7 +96,7 @@ include 'database/handlers/login_handler.php';
                     <input type="text" name="reg_lname" placeholder="Last Name" value="<?php if (isset($_SESSION['reg_lname'])) {
                         echo $_SESSION['reg_lname'];
                     } ?>" required>
-                    <?php if (in_array("Your last name must be between 2 and 25 characters" , $error_array)) echo "Your last name must be between 2 and 25 characters";           
+                    <?php if (in_array("Your last name must be between 2 and 25 characters" , $error_array)) echo "<p class='alert'>Your last name must be between 2 and 25 characters</p>";           
                     ?>
 
                     <!-- Username -->
@@ -95,9 +105,9 @@ include 'database/handlers/login_handler.php';
                         echo $_SESSION['username'];
                     } ?>" required>
                     <?php
-                        if(in_array("Username already exists", $error_array)) echo "Username already exists<br>";
-                        else if(in_array("Username must be between 2 and 20", $error_array)) echo "Username must be between 2 and 20<br>";
-                        else if(in_array("You username can only contain english characters or numbers", $error_array)) echo "You username can only contain english characters or numbers<br>";
+                        if(in_array("Username already exists", $error_array)) echo "<p class='alert'>Username already exists</p>";
+                        else if(in_array("Username must be between 2 and 20", $error_array)) echo "<p class='alert'>Username must be between 2 and 20</p>";
+                        else if(in_array("You username can only contain english characters or numbers", $error_array)) echo "<p class='alert'>You username can only contain english characters or numbers</p>";
                     ?>
 
                     <!-- Email -->
@@ -112,22 +122,25 @@ include 'database/handlers/login_handler.php';
                         echo $_SESSION['reg_email2'];
                     } ?>" required>
                     <?php
-                        if (in_array("Email already in use", $error_array)) echo "Email already in use<br>";
-                        else if (in_array("Email is invalid format", $error_array)) echo "Email is invalid format<br>";
-                        else if (in_array("Email doesn't match", $error_array)) echo "Email doesn't match<br>";
+                        if (in_array("Email already in use", $error_array)) echo "<p class='alert'>Email already in use</p>";
+                        else if (in_array("Email is invalid format", $error_array)) echo "<p class='alert'>Email is invalid format</p>";
+                        else if (in_array("Email doesn't match", $error_array)) echo "<p class='alert'>Email doesn't match</p>";
                     ?>
 
                     <!-- Password -->
                     <label>Password</label>
-                    <input type="password" name="reg_password" placeholder="Password" required>
+                    <input type="password" name="reg_password" placeholder="Password"  required>
+                    <?php 
+                        
+                    ?>
                     
                     <!-- Confirm Password -->
                     <label>Confirm password</label>
                     <input type="password" name="reg_password2" placeholder="Confirm Password" required>
                     <?php 
-                        if(in_array("Your passwords doesn't match", $error_array)) echo "You passwords doesn't match<br>";
-                        else if(in_array("Your password can only contain english characters or numbers", $error_array)) echo "Your password can only contain english characters or numbers<br>";
-                        else if(in_array("Your password must be between 5 and 30 characters or numbers", $error_array)) echo "Your password must be between 5 and 30 characters or numbers<br>";
+                        if(in_array("Your passwords doesn't match", $error_array)) echo "<p class='alert'>You passwords doesn't match</p>";
+                        else if(in_array("Your password can only contain english characters or numbers", $error_array)) echo "<p class='alert'>Your password can only contain english characters or numbers</p>";
+                        else if(in_array("Your password must be between 5 and 30 characters or numbers", $error_array)) echo "<p class='alert'>Your password must be between 5 and 30 characters or numbers</p>";
                     ?>
 
                     <!-- Gender -->
@@ -145,11 +158,13 @@ include 'database/handlers/login_handler.php';
 
                     <!-- Birthday -->
                     <br>      
-                    <label>Birthday</label>
+                    <!-- <label>Birthday</label> -->
                     <tr>
                         <td>Birthday
                         &nbsp;&nbsp;
-                        <input type="date" name="dob" requred>
+                        <input type="date" name="dob" value="<?php if (isset($_SESSION['dob'])) {
+                            echo $_SESSION['dob'];
+                        } ?>" requred>
                         </td>
                     </tr>
                     

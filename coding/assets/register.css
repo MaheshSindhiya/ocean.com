@@ -23,7 +23,7 @@ body{
 }
 
 .signin-form{
-    height: 500px;
+    height: 550px;
     width: 600px;
     border-radius: 5px;
     margin: 10px;
@@ -80,7 +80,7 @@ input{
 }
 
 .signup-form{
-    height: 500px;
+    /* height: 550px; */
     width: 600px;
     border-radius: 5px;
     margin: 10px;
