@@ -41,6 +41,11 @@
     <title>Welcome Admin</title>
 
     <style>
+    
+    .alert{
+        color: red;
+        margin: auto;
+    }
     .from_wreper{
         margin-left: 325px;
         margin-right: auto;
@@ -82,7 +87,7 @@
                     <!-- remember me -->
                     
 
-                    <?php if(in_array("Username or Password was incorrect", $error_array)) echo "Username or Password was incorrect"; ?>
+                    <?php if(in_array("Username or Password was incorrect", $error_array)) echo "<p class='alert'>Username or Password was incorrect</p>"; ?>
                     <button type="submit" style="margin-bottom:20px" name="login_btn">Sign in!</button>
                 </form>     
             </div>

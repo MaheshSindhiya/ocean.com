@@ -12,8 +12,8 @@
     <?php
     
         include 'session-file.php';
-        include 'database/classes/User.php';
-        include 'database/classes/Post.php'; 
+        include 'classes/User.php';
+        include 'classes/Post.php'; 
     
         if(isset($_SESSION['username'])){
             $userLoggedIn = $_SESSION['username'];
@@ -147,7 +147,7 @@
                 ?>
                 <!-- show post comments -->
                 <div class="comment_section">
-                    <a href="<?php echo $posted_by?>" target="_parent"><img src="<?php echo $user_obj->getProfilePic(); ?>" title="<?php echo $posted_by; ?>"style="float:left; margin-right:5px;" height="30"></a>
+                    <a href="<?php echo $posted_by?>" target="_parent"><img src="<?php echo $user_obj->getProfilePic(); ?>" title="<?php echo $posted_by; ?>"style="float:left; margin-right:5px; border-radius: 50%; height: 35px; width: 35px" height="30"></a>
                     <a href="<?php echo $posted_by?>" target="_parent">
                         <?php echo $user_obj->getFnameAndLname(); ?></a>
                         <br> <?php echo "<div style=\"color:#5D6D7E;\">$time_message</div>" . "<br>" .

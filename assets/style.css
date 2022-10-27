@@ -348,7 +348,9 @@ nav a:hover{
 }
 
 .post_profile_pic img{
-    border-radius: 5px;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
 }
 
 .time {
@@ -494,7 +496,7 @@ nav a:hover{
     border: 1px solid #d5d8d4;
     margin-top: 90px;
     position: absolute;
-    margin-left: 800px;
+    margin-left: 885px;
     padding: 5px;
     padding-top: 5px;
     margin-bottom: 50px;

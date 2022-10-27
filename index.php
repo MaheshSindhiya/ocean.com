@@ -2,10 +2,10 @@
 <!-- Index.php^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
 
 <?php
-    include 'database/header.php';
-    include 'database/classes/User.php';
-    include 'database/classes/Post.php';
-    include 'database/classes/Message.php';
+    include 'header.php';
+    include 'classes/User.php';
+    include 'classes/Post.php';
+    include 'classes/Message.php';
 
     if(isset($_POST['post'])){
         $uploadOk = 1;
@@ -117,7 +117,7 @@
                     <div class="p-fo-left">
                         <ul>
                             <input type="file" name="fileToUpload" id="fileToUpload"/>
-                            <label for="fileToUpload"> <i class="fas fa-camera fa-lg"></i> </label>
+                            <label for="fileToUpload"> <img src="assets/images/camera.png" alt="" height="30px"></i> </label>
                             <span class="tweet-error"></span>
                             <input id="sub-btn" type="submit" name="post" value="SHARE">
                         </ul>
