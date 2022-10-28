@@ -3,9 +3,9 @@
 
 <?php
     include 'header.php';
-    include 'classes/User.php';
-    include 'classes/Post.php';
-    include 'classes/Message.php';
+    // include 'classes/User.php';
+    // include 'classes/Post.php';
+    // include 'classes/Message.php';
 
     if(isset($_POST['post'])){
         $uploadOk = 1;

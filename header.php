@@ -3,6 +3,9 @@
 <?php 
 
     include 'session-file.php';
+    include 'classes/User.php';
+    include 'classes/Post.php';
+    include 'classes/Message.php';
 
     if(isset($_SESSION['username'])){
         $userLoggedIn = $_SESSION['username'];
@@ -69,8 +72,20 @@
         
 
         <a href="index.php"> <i class="fas fa-home fa-lg"></i></a>
-          
-        <a href="messages.php"> <i class="fas fa-envelope fa-lg"></i></a>            
+        <a href="messages.php"> <i class="fas fa-envelope fa-lg"></i></a>
+        <?php    
+            $message_obj = new Message($con, $userLoggedIn);
+            $num_msg = $message_obj->getUnreadNumber();
+            if ($num_msg > 0){
+                echo "
+                    <div class='notification_count' style='background: red; height: 20px; width: 20px; border-radius: 50%; color: white; display: grid; position: relative; margin: -30px 0px 0px 60px;'>
+                        <span style='font-size: 10px; text-align: center; margin: 2px 0 0 0;'>"
+                            . $num_msg .
+                        "</span>        
+                    </div>
+                ";
+            }         
+        ?>
   </nav>
   
 </div>
