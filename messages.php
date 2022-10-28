@@ -2,10 +2,10 @@
 
 <!-- Message.php^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
 
-<?php include 'database/header.php'; 
-      include 'database/classes/User.php';
-      include 'database/classes/Post.php';
-      include 'database/classes/Message.php';
+<?php include 'header.php'; 
+      include 'classes/User.php';
+      include 'classes/Post.php';
+      include 'classes/Message.php';
 
       
       //get the most recebt user from conversetion

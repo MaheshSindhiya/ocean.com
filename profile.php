@@ -2,9 +2,9 @@
 
 <!-- Profile.php^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
 
-<?php include 'database/header.php'; 
-      include 'database/classes/User.php';
-      include 'database/classes/Post.php';
+<?php include 'header.php'; 
+      include 'classes/User.php';
+      include 'classes/Post.php';
 
     if(isset($_GET['profile_username'])){
         $username = $_GET['profile_username'];
@@ -60,36 +60,38 @@
                     
                     echo "<span class='username'>@$username</span>";                
                 ?>
-                <form action="#" method="POST"> 
-                    <button class="message" name="send_msg"><i class="fas fa-comment-alt"></i> Message</button></form>
-                <form action="<?php echo $username; ?>" method="POST">
-                
-                    <?php 
-                        
-                        $profile_user_obj = new User($con, $username);
-                        if($profile_user_obj->isClosed()){
-                            header("Location: user_closed.php");
-                        }
-                        $logged_in_user_obj = new User($con, $userLoggedIn);
-                        if($userLoggedIn != $username){
-                            if($logged_in_user_obj->isFriend($username)){
-                                echo '<span  class="addFriend"  style="background: #ff5c5c; margin-left: 575px;"><i class="fas fa-user-minus"></i> <input type="submit" style="border: none; background: transparent; color: white; font-size: 14px;" name="remove_friend" value="Remove friend"></span>';
-                            }
-                            else if ($logged_in_user_obj->didReceiveRequest($username)) {
-                                echo '<span  class="addFriend"  style="background: #73d640; margin-left: 575px;"> <input type="submit" style="border: none; background: transparent; color: white; font-size: 14px;" name="accept_request" value="Accept Request"></span>';
-                            }
-                            else if ($logged_in_user_obj->didSendRequest($username)) {
-                                echo '<span  class="addFriend"  style="background: #73d640; margin-left: 575px;"> <input type="submit" style="border: none; background: transparent; color: white; font-size: 14px;" value="Request Sent"></span>';
-                            }
-                            else {
-                                echo '<span style="margin-left: 575px;" class="addFriend" ><i class="fas fa-user-plus"></i> <input type="submit" style="border: none; background: transparent; color: white; font-size: 14px;" name="add_friend" value="Add friend"></span>';
-                            }
-                        }
-                    ?>
+                <div class="btns" style="display: flex; margin: -15px 500px;">
+                    <form action="#" method="POST"> 
+                        <button class="message" name="send_msg"><i class="fas fa-comment-alt"></i> Message</button>
+                    </form>
+                    <form action="<?php echo $username; ?>" method="POST">
                     
-                   
-                </form>
-
+                        <?php 
+                            
+                            $profile_user_obj = new User($con, $username);
+                            if($profile_user_obj->isClosed()){
+                                header("Location: user_closed.php");
+                            }
+                            $logged_in_user_obj = new User($con, $userLoggedIn);
+                            if($userLoggedIn != $username){
+                                if($logged_in_user_obj->isFriend($username)){
+                                    echo '<span  class="addFriend"  style="background: #ff5c5c; margin-left: 575px;"><i class="fas fa-user-minus"></i> <input type="submit" style="border: none; background: transparent; color: white; font-size: 14px;" name="remove_friend" value="Remove friend"></span>';
+                                }
+                                else if ($logged_in_user_obj->didReceiveRequest($username)) {
+                                    echo '<span  class="addFriend"  style="background: #73d640; margin-left: 575px;"> <input type="submit" style="border: none; background: transparent; color: white; font-size: 14px;" name="accept_request" value="Accept Request"></span>';
+                                }
+                                else if ($logged_in_user_obj->didSendRequest($username)) {
+                                    echo '<span  class="addFriend"  style="background: #73d640; margin-left: 575px;"> <input type="submit" style="border: none; background: transparent; color: white; font-size: 14px;" value="Request Sent"></span>';
+                                }
+                                else {
+                                    echo '<span style="margin-left: 575px;" class="addFriend" ><i class="fas fa-user-plus"></i> <input type="submit" style="border: none; background: transparent; color: white; font-size: 14px;" name="add_friend" value="Add friend"></span>';
+                                }
+                            }
+                        ?>
+                        
+                    
+                    </form>
+                </div>        
             </div>
 
             <div class="main-coluam">
@@ -221,7 +223,7 @@
                                             <span class='comment' style='color: #3875c5; font-size: 12px; float: right; margin-right: 40px; margin-top:-10px;'  onClick='javascript:toggle$id()'><i class='fas fa-comment fa-2x'></i>($comment_check_num)</span>&nbsp;&nbsp;
                                             <iframe src='like.php?post_id=$id'style='
                                             border: 0px;
-                                            height: 30px;
+                                            height: 25px;
                                             width: 120px;
                                             margin-left: 35px;
                                         ' scrolling='no'></iframe>

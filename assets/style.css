@@ -165,12 +165,12 @@ nav a:hover{
 }
 
 .in-b-img{
-    width: 70px;
+    width: 100px;
+    height: 100px;
     float: left;
     overflow: hidden;
     position: relative;
-    border-radius: 5px;
-    height: 70px;
+    border-radius: 50%;
     top: 15px;
     left: 10px;
     margin-right: 15px;
@@ -257,11 +257,11 @@ nav a:hover{
 }
 
 .post-h-img{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     float: right;
+    border-radius: 50%;
     overflow: hidden;
-    border-radius: 4px;
     margin: 0px 5px;
 }
 
@@ -469,7 +469,7 @@ nav a:hover{
     position: absolute;
     margin-top: -110px;
     padding: 8px 14px;
-    background-color:  #00000021;
+    background-color:  #4ac4da;
     border: none;
     border-radius: 3px;
     font-size: 16px;

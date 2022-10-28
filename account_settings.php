@@ -1,8 +1,8 @@
 <!-- Account setting.php^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
 
-<?php include 'database/header.php'; 
-      include 'database/classes/User.php';
-      include 'database/classes/Post.php';
+<?php include 'header.php'; 
+      include 'classes/User.php';
+      include 'classes/Post.php';
      $msg = "";
 
     $user_detail_query = mysqli_query($con,"select * from users where username='$userLoggedIn'");

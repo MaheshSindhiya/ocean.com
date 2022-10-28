@@ -117,11 +117,11 @@
         if($password != $password2){
             array_push($error_array, "Your passwords doesn't match");
         }
-        else{ 
-            if(preg_match('/[^A-Za-z0-9]/', $password)){
-                array_push($error_array, "Your password can only contain english characters or numbers");
-            }
-        }
+        // else{ 
+        //     if(preg_match('/[^A-Za-z0-9]/', $password)){
+        //         array_push($error_array, "Your password can only contain english characters or numbers");
+        //     }
+        // }
         
         if(strlen($password > 31 || strlen($password) < 4)){
             array_push($error_array, "Your password must be between 5 and 30 characters or numbers");
