@@ -52,6 +52,19 @@
                        <?php echo "@".$user ['username']?></a></h5>
                                 
                 <a href="request.php"> <i class="fas fa-user-plus fa-lg" style="margin-right: 3px;"></i> Requests</a>
+                <?php    
+                    $user_obj = new User($con, $userLoggedIn);
+                    $num_requast = $user_obj->getNumbreOfRequest();
+                    if ($num_requast > 0){
+                        echo "
+                            <div class='notification_count' style='background: red; height: 20px; width: 20px; border-radius: 50%; color: white; display: grid; position: relative; margin: -20px 0px 0px 135px;'>
+                                <span style='font-size: 10px; text-align: center; margin: 2px 0 0 0;'>"
+                                    . $num_requast .
+                                "</span>        
+                            </div>
+                        ";
+                    }         
+                ?>
                 
                 <hr>
                 

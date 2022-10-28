@@ -111,11 +111,15 @@
 
         public function getFolovers($user_to_check){
             $folovers = 0;
-            $user_array = $user['friend_array'];
+            $user_array = $this->user['friend_array'];
             $user_array_explode = explode(",",$user_array); //explode is function to sepret the string into array at given_value
         }
 
-
+        public function getNumbreOfRequest(){
+            $userLoggedIn = $this->user['username'];
+            $query = mysqli_query($this->con, "select * from friend_requests where user_to='$userLoggedIn'");
+            return mysqli_num_rows($query);
+        }
 
     }
 

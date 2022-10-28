@@ -4,8 +4,8 @@
 <!-- Request.php^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
 
 <?php  include 'header.php'; 
-      include 'classes/User.php';
-      include 'classes/Post.php';
+    //   include 'classes/User.php';
+    //   include 'classes/Post.php';
 ?>
 <style>
     .main_column{
@@ -55,7 +55,7 @@
         width: 350px;
        
     }
-}
+
 
 </style>
 

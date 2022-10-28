@@ -1,7 +1,7 @@
 <!-- Account setting.php^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
 
 <?php include 'header.php'; 
-      include 'classes/User.php';
+      include ;
       include 'classes/Post.php';
      $msg = "";
 

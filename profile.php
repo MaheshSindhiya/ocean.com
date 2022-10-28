@@ -3,8 +3,8 @@
 <!-- Profile.php^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
 
 <?php include 'header.php'; 
-      include 'classes/User.php';
-      include 'classes/Post.php';
+    //   include 'classes/User.php';
+    //   include 'classes/Post.php';
 
     if(isset($_GET['profile_username'])){
         $username = $_GET['profile_username'];
