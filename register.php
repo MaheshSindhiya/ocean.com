@@ -5,6 +5,7 @@
 
 <?php
 include 'session-file.php';
+
 include 'handlers/register_handler.php';
 include 'handlers/login_handler.php';
 ?>
@@ -20,10 +21,21 @@ include 'handlers/login_handler.php';
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
         .alert{
             color: red;
             margin: auto;
+        }
+        .pswd_icon_bg{
+            background: white;
+            height: 32px;
+            width: 30px;
+            position: absolute;
+            display: flex;
+            align-content: center;
+            overflow: hidden;
+            margin: 0 0 0 525px;
         }
     </style>
 
@@ -59,7 +71,8 @@ include 'handlers/login_handler.php';
                                             
                     <!-- Password -->
                         <label for="form-password">Password</label>
-                        <input type="password" name="log_password" placeholder="Password" required> <Br>
+                        <span class="pswd_icon_bg"  onclick="log_pswd_toggale()"><i class="fa-regular fa-eye" id="pswd_show" style="margin: auto;"></i></span>
+                        <input type="password" id="login_pswd" name="log_password" placeholder="Password" required> <Br>
                         
                     <!-- remember me -->
                     
@@ -129,14 +142,16 @@ include 'handlers/login_handler.php';
 
                     <!-- Password -->
                     <label>Password</label>
-                    <input type="password" name="reg_password" placeholder="Password"  required>
+                    <span class="pswd_icon_bg"  onclick="reg_pswd_toggale()"><i class="fa-regular fa-eye" id="reg_pswd_show" style="margin: auto;"></i></span>
+                    <input type="password" id="register_pswd" name="reg_password" placeholder="Password"  required>
                     <?php 
                         
                     ?>
                     
                     <!-- Confirm Password -->
                     <label>Confirm password</label>
-                    <input type="password" name="reg_password2" placeholder="Confirm Password" required>
+                    <span class="pswd_icon_bg"  onclick="reg_conf_pswd_toggale()"><i class="fa-regular fa-eye" id="reg_conf_pswd_show" style="margin: auto;"></i></span>
+                    <input type="password" id="register_conferm_pswd" name="reg_password2" placeholder="Confirm Password" required>
                     <?php 
                         if(in_array("Your passwords doesn't match", $error_array)) echo "<p class='alert'>You passwords doesn't match</p>";
                         else if(in_array("Your password can only contain english characters or numbers", $error_array)) echo "<p class='alert'>Your password can only contain english characters or numbers</p>";
@@ -186,6 +201,42 @@ include 'handlers/login_handler.php';
     		<p> ©2020 All Rights Reserved <BR> Website designed and developed by <strong><U>Sindhiya Mahesh</u> & <u>Shishangiya Keval</U></strong></p>
     	</div>
     </footer>
+
+    <script>
+        function log_pswd_toggale() {
+            var x = document.getElementById("login_pswd");
+            var img = document.getElementById("pswd_show");
+            if (x.type === "password") {
+                img.className = "fa-regular fa-eye-slash"
+                x.type = "text";
+            } else {
+                img.className = "fa-regular fa-eye"
+                x.type = "password";
+            }
+        }
+        function reg_pswd_toggale() {
+            var y = document.getElementById("register_pswd");
+            var img = document.getElementById("reg_pswd_show");
+            if (y.type === "password") {
+                img.className = "fa-regular fa-eye-slash"
+                y.type = "text";
+            } else {
+                img.className = "fa-regular fa-eye"
+                y.type = "password";
+            }
+        }
+        function reg_conf_pswd_toggale() {
+            var z = document.getElementById("register_conferm_pswd");
+            var img = document.getElementById("reg_conf_pswd_show");
+            if (z.type === "password") {
+                img.className = "fa-regular fa-eye-slash"
+                z.type = "text";
+            } else {
+                img.className = "fa-regular fa-eye"
+                z.type = "password";
+            }
+        }
+    </script>
 
 </body>
 
