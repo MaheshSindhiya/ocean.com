@@ -133,14 +133,14 @@
         border-color: #3498bd;
         float: right;
         margin-right: 15px;
-        margin-bottom: 5px;
+        /* margin-bottom: 5px; */
     }
 
     .msg#green{
         background: #73d640;
         border-color: #73d640;
         float: left;
-        margin-bottom: 5px;
+        /* margin-bottom: 5px; */
     }
 
     .load_msgs{
@@ -219,7 +219,7 @@
                     <?php 
                         if ($user_to == "new") {
                             echo "Search the friend to start conversesion<br><br>";
-                            echo "To : <input type='text' id='msg_area' name='search' placeholder='Enter Name of user with *First leter Capital....'>";
+                            echo "To : <input type='text' id='msg_area' name='search' placeholder='Enter @UserName with *First leter Capital....'>";
                             echo "<input type='submit' name='search_btn' value='Search'>";
                             echo "<lable value='search_lbl'>";
                         }
