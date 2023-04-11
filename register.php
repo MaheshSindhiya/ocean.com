@@ -198,7 +198,7 @@ include 'handlers/login_handler.php';
     <footer>			
     	<div class="footer"> 
             <a style="text-decoration-line: none; color: #977AFF;" href="admin.php"><i class="fas fa-user-shield"></i> Admin? click here <i class="fas fa-arrow-right"></i></a>
-    		<p> ©2020 All Rights Reserved <BR> Website designed and developed by <strong><U>Sindhiya Mahesh</u> & <u>Shishangiya Keval</U></strong></p>
+    		<p> ©2020 All Rights Reserved <BR> Website designed and developed by <strong><U>Sindhiya Mahesh</u></strong></p>
     	</div>
     </footer>
 
